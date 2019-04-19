@@ -1,0 +1,7 @@
+steps:
+- name: "gcr.io/cloud-builders/docker"
+  args: [ "build", "--tag", "gcr.io/$PROJECT_ID/app", "." ]
+- name: "gcr.io/$PROJECT_ID/app"
+  args: [ "ruby", "test/app_test.rb" ]
+images:
+- "gcr.io/$PROJECT_ID/app"
